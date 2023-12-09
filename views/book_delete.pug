@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{book.title}
+
+  p #[strong Author:]
+    a(href=book.author.url) #{book.author.name}
+  p #[strong Summary:] #{book.summary}
+  p #[strong ISBN:] #{book.isbn}
+
+  hr
+  p Do you really want to delete this Book?
+  form(method='POST' action='')
+    div.form-group
+      input#id.form-control(type='hidden',name='id', required='true', value=book._id )
+
+    button.btn.btn-primary(type='submit') Delete
