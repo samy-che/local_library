@@ -13,7 +13,6 @@ Cette application est un exemple pédagogique (inspiré du tutoriel MDN) qui ill
 - [Configuration de la base de données](#configuration-de-la-base-de-données)
 - [Lancement du projet](#lancement-du-projet)
 - [Peupler la base de données](#peupler-la-base-de-données)
-- [Structure du projet](#structure-du-projet)
 - [Aperçu des principales fonctionnalités](#aperçu-des-principales-fonctionnalités)
 - [Licence](#licence)
 
@@ -83,35 +82,6 @@ const mongoDB = process.env.MONGODB_URI || dev_db_url;
 - node populatedb.js mongodb+srv://admin:mdp@cluster0.5vtyrrf.mongodb.net/local_library?retryWrites=true&w=majority
 
 ---
-## Structure du projet
-
-samy-che-local_library/
-├── app.js               # Configuration d'Express et Mongoose
-├── package.json         # Dépendances et scripts npm
-├── populatedb.js        # Script pour insérer des données de test
-├── bin/
-│   └── www              # Lance le serveur sur le port 3000
-├── controllers/
-│   ├── authorController.js  # Logique métier CRUD pour les auteurs
-│   └── bookController.js    # Logique métier CRUD pour les livres
-├── models/
-│   ├── author.js        # Schéma Mongoose de l'Auteur
-│   └── book.js          # Schéma Mongoose du Livre
-├── public/
-│   └── stylesheets/
-│       └── style.css    # Fichier CSS principal
-├── routes/
-│   ├── catalog.js       # Routes /catalog pour livres et auteurs
-│   ├── index.js         # Redirection de la racine vers /catalog
-│   └── users.js         # Exemple de route pour /users
-└── views/
-    ├── layout.pug       # Template layout Pug (base HTML, Bootstrap)
-    ├── index.pug        # Page d'accueil
-    ├── author_*.pug     # Vues liées aux auteurs
-    ├── book_*.pug       # Vues liées aux livres
-    └── error.pug        # Page d'erreur
-
- ---
  ## Aperçu des principales fonctionnalités
 
  - Liste des livres : /catalog/books
