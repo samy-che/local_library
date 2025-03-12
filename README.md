@@ -56,3 +56,14 @@ Cette application est un exemple pédagogique (inspiré du tutoriel MDN) qui ill
    ```bash
    git clone https://github.com/votre-utilisateur/samy-che-local_library.git
    cd samy-che-local_library
+2. Installer les dépendances :
+      npm install
+
+##Configuration de la base de données : 
+
+const dev_db_url =
+  "mongodb+srv://admin:Parking21@cluster0.5vtyrrf.mongodb.net/local_library?retryWrites=true&w=majority";
+
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
+
+
