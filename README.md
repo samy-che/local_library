@@ -15,7 +15,6 @@ Cette application est un exemple pédagogique (inspiré du tutoriel MDN) qui ill
 - [Peupler la base de données](#peupler-la-base-de-données)
 - [Structure du projet](#structure-du-projet)
 - [Aperçu des principales fonctionnalités](#aperçu-des-principales-fonctionnalités)
-- [Contribuer](#contribuer)
 - [Licence](#licence)
 
 ---
@@ -58,12 +57,88 @@ Cette application est un exemple pédagogique (inspiré du tutoriel MDN) qui ill
    cd samy-che-local_library
 2. Installer les dépendances :
       npm install
+---
 
-##Configuration de la base de données : 
+## Configuration de la base de données 
 
 const dev_db_url =
-  "mongodb+srv://admin:Parking21@cluster0.5vtyrrf.mongodb.net/local_library?retryWrites=true&w=majority";
+  "mongodb+srv://admin:mdp@cluster0.5vtyrrf.mongodb.net/local_library?retryWrites=true&w=majority";
 
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
+
+---
+
+## Lancement du projet
+
+- npm start
+
+- npm run devstart
+
+- npm run serverstart
+
+---
+## Peupler la base de données
+
+- node populatedb.js <URL_MONGODB>
+- node populatedb.js mongodb+srv://admin:mdp@cluster0.5vtyrrf.mongodb.net/local_library?retryWrites=true&w=majority
+
+---
+## Structure du projet
+
+samy-che-local_library/
+├── app.js               # Configuration d'Express et Mongoose
+├── package.json         # Dépendances et scripts npm
+├── populatedb.js        # Script pour insérer des données de test
+├── bin/
+│   └── www              # Lance le serveur sur le port 3000
+├── controllers/
+│   ├── authorController.js  # Logique métier CRUD pour les auteurs
+│   └── bookController.js    # Logique métier CRUD pour les livres
+├── models/
+│   ├── author.js        # Schéma Mongoose de l'Auteur
+│   └── book.js          # Schéma Mongoose du Livre
+├── public/
+│   └── stylesheets/
+│       └── style.css    # Fichier CSS principal
+├── routes/
+│   ├── catalog.js       # Routes /catalog pour livres et auteurs
+│   ├── index.js         # Redirection de la racine vers /catalog
+│   └── users.js         # Exemple de route pour /users
+└── views/
+    ├── layout.pug       # Template layout Pug (base HTML, Bootstrap)
+    ├── index.pug        # Page d'accueil
+    ├── author_*.pug     # Vues liées aux auteurs
+    ├── book_*.pug       # Vues liées aux livres
+    └── error.pug        # Page d'erreur
+
+ ---
+ ## Aperçu des principales fonctionnalités
+
+ - Liste des livres : /catalog/books
+
+- Détail d’un livre : /catalog/book/<ID>
+
+- Créer un livre : /catalog/book/create
+
+- Mettre à jour un livre : /catalog/book/<ID>/update
+
+- Supprimer un livre : /catalog/book/<ID>/delete
+
+- Liste des auteurs : /catalog/authors
+
+- Détail d’un auteur : /catalog/author/<ID>
+
+- Créer un auteur : /catalog/author/create
+
+- Mettre à jour un auteur : /catalog/author/<ID>/update
+
+- Supprimer un auteur : /catalog/author/<ID>/delete
+
+---
+## Licence 
+
+Ce projet est proposé à des fins pédagogiques. Vous pouvez librement l’utiliser, le modifier et le redistribuer en mentionnant la source.
+
+
 
 
